@@ -9,4 +9,8 @@
     <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="telegram.bot" Version="19.0.0" />
+  </ItemGroup>
+
 </Project>
