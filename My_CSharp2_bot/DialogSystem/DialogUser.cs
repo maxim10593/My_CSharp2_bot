@@ -15,9 +15,9 @@ namespace My_CSharp2_bot.DialogSystem
 
         public Telegram.Bot.Types.User TelegramUser { get; }
 
-        public DialogUser(long telegramUserId, Telegram.Bot.Types.User telegramUser)
+        public DialogUser(Telegram.Bot.Types.User telegramUser)
         {
-            this.TelegramUserId = telegramUserId;
+            this.TelegramUserId = telegramUser.Id;
 
             this.StateMachine = new();
 

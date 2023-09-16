@@ -17,9 +17,9 @@ namespace My_CSharp2_bot.DialogSystem
             return userMap.ContainsKey(telegramId);
         }
 
-        public void AddDialogUser(long telegramId, DialogUser user)
+        public void AddDialogUser(DialogUser user)
         {
-            userMap.Add(telegramId, user);
+            userMap.Add(user.TelegramUserId, user);
         }
 
         public void RemoveDialogUser(long telegramId)
@@ -27,6 +27,10 @@ namespace My_CSharp2_bot.DialogSystem
             userMap.Remove(telegramId);
         }
 
+        public DialogUser GetDialogUser(long telegramId)
+        {
+            return userMap[telegramId];
+        }
 
         public async Task UpdateAsync(long telegramId, ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
