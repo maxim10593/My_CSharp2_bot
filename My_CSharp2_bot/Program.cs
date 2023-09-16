@@ -23,7 +23,7 @@ namespace My_CSharp2_bot
 
         }
 
-        private static async Task PollingErrorHandler(ITelegramBotClient client, Exception exception, CancellationToken token)
+        private static async Task PollingErrorHandler(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
 
         }
