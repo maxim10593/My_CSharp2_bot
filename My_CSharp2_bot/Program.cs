@@ -16,14 +16,20 @@ namespace My_CSharp2_bot
                 pollingErrorHandler: PollingErrorHandler,
                 cancellationToken: cancellationTokenSource.Token
                 );
+
+            Console.ReadLine();
+
+            cancellationTokenSource.Cancel();
+
+            Console.ReadLine();
         }
 
-        private static async Task UpdateHandlerAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        private async static Task UpdateHandlerAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
 
         }
 
-        private static async Task PollingErrorHandler(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
+        private async static Task PollingErrorHandler(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
 
         }

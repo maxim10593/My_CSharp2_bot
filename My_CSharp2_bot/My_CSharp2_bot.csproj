@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DialogState\**" />
+    <EmbeddedResource Remove="DialogState\**" />
+    <None Remove="DialogState\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="telegram.bot" Version="19.0.0" />
   </ItemGroup>
 

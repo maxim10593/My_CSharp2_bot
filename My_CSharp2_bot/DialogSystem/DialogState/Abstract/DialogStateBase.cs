@@ -1,19 +1,23 @@
-﻿using My_CSharp2_bot.DialogState.Machine;
+﻿using My_CSharp2_bot.DialogSystem.DialogState.Machine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace My_CSharp2_bot.DialogState.Abstract
+namespace My_CSharp2_bot.DialogSystem.DialogState.Abstract
 {
     internal abstract class DialogStateBase
     {
         protected readonly DialogStateMachine dialogStateMachine;
 
-        public DialogStateBase(DialogStateMachine dialogStateMachine)
+        protected readonly DialogUser dialogUser;
+
+        public DialogStateBase(DialogStateMachine dialogStateMachine, DialogUser dialogUser)
         {
             this.dialogStateMachine = dialogStateMachine;
+
+            this.dialogUser = dialogUser;
         }
     }
 }

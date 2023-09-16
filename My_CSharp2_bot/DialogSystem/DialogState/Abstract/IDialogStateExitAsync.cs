@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Telegram.Bot.Types;
 using Telegram.Bot;
 
-namespace My_CSharp2_bot.DialogState.Abstract
+namespace My_CSharp2_bot.DialogSystem.DialogState.Abstract
 {
     internal interface IDialogStateExitAsync
     {
