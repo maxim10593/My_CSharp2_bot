@@ -10,6 +10,6 @@ namespace My_CSharp2_bot.DialogSystem.DialogState.Abstract
 {
     internal interface IDialogStateCallbackQueryUpdate
     {
-        Task CallbackQueryUpdateAync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken);
+        Task CallbackQueryUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken);
     }
 }

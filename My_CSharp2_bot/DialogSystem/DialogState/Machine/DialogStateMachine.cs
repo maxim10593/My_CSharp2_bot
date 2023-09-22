@@ -25,6 +25,11 @@ namespace My_CSharp2_bot.DialogSystem.DialogState.Machine
             this.dialogStateMap.Remove(key);
         }
 
+        public T GetDialogState<T>(string key) where T : DialogStateBase
+        {
+            return (T)this.dialogStateMap[key];
+        }
+
         public async Task SetDialogStateAsync(string key, ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             if (currentDialogState == dialogStateMap[key])
@@ -57,7 +62,7 @@ namespace My_CSharp2_bot.DialogSystem.DialogState.Machine
         {
             if (currentDialogState is IDialogStateCallbackQueryUpdate dialogStateCallbackQueryUpdate)
             {
-                await dialogStateCallbackQueryUpdate.CallbackQueryUpdateAync(botClient, update, cancellationToken);
+                await dialogStateCallbackQueryUpdate.CallbackQueryUpdateAsync(botClient, update, cancellationToken);
             }
         }
     }
