@@ -52,5 +52,13 @@ namespace My_CSharp2_bot.DialogSystem.DialogState.Machine
                 await dialogStateUpdateAsync.UpdateAsync(botClient, update, cancellationToken);
             }
         }
+
+        public async Task UpdateCallbackQueryAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            if (currentDialogState is IDialogStateCallbackQueryUpdate dialogStateCallbackQueryUpdate)
+            {
+                await dialogStateCallbackQueryUpdate.CallbackQueryUpdateAync(botClient, update, cancellationToken);
+            }
+        }
     }
 }

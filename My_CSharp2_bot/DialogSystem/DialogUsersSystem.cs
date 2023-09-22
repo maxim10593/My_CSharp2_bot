@@ -36,5 +36,10 @@ namespace My_CSharp2_bot.DialogSystem
         {
             await this.userMap[telegramId].StateMachine.UpdateDialogStateAsync(botClient, update, cancellationToken);
         }
+        
+        public async Task UpdateCallbackQueryAsync(long telegramId, ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        {
+            await this.userMap[telegramId].StateMachine.UpdateCallbackQueryAsync(botClient, update, cancellationToken);
+        }
     }
 }

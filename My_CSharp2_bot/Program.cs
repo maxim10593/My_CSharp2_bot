@@ -61,11 +61,31 @@ namespace My_CSharp2_bot
                 // Вызиваем обновление у диалогой системе
                 await dialogUsersSystem.UpdateAsync(fromUser.Id, botClient, update, cancellationToken);
             }
+
+            if(update?.CallbackQuery?.From != null)
+            {
+                User fromUser = update.CallbackQuery.From;
+
+                if (!dialogUsersSystem.ContainsDialogUser(fromUser.Id))
+                {
+                    DialogUser newDialogUser = new(fromUser);
+
+                    dialogUsersSystem.AddDialogUser(newDialogUser);
+
+                    // Добавляем "входное состояние"
+                    // Новому диалоговому пользователю
+                    newDialogUser.StateMachine.AddDialogState(ENTER_DIALOG_STATE_KEY, new EnterDialogState(newDialogUser.StateMachine, newDialogUser));
+
+                    await newDialogUser.StateMachine.SetDialogStateAsync(ENTER_DIALOG_STATE_KEY, botClient, update, cancellationToken);
+                }
+
+                await dialogUsersSystem.UpdateCallbackQueryAsync(fromUser.Id, botClient, update, cancellationToken);
+            }
         }
 
         private async static Task PollingErrorHandler(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
-
+            await Console.Out.WriteLineAsync($"{exception}");
         }
     }
 }
