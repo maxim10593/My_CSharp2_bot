@@ -1,24 +1,23 @@
 ﻿namespace My_CSharp2_bot.Architecture.Abstract
 {
-    internal abstract class DialogStateMachineBase<TDialogStateMachineKey, TDialogStateBase>
+    internal abstract class DialogStateMachineBase<TDialogStateMachineKey>
         where TDialogStateMachineKey : notnull
-        where TDialogStateBase : DialogStateBase
     {
-        protected Dictionary<TDialogStateMachineKey, TDialogStateBase> stateMap = new();
+        protected Dictionary<TDialogStateMachineKey, DialogStateBase<TDialogStateMachineKey>> stateMap = new();
 
-        public TDialogStateBase? CurrentState { get; protected set; }
+        public DialogStateBase<TDialogStateMachineKey>? CurrentState { get; protected set; }
 
         public bool ContainsState(TDialogStateMachineKey key)
         {
             return this.stateMap.ContainsKey(key);
         }
 
-        public void AddState(TDialogStateMachineKey key,TDialogStateBase newState)
+        public void AddState(TDialogStateMachineKey key, DialogStateBase<TDialogStateMachineKey> newState)
         {
             this.stateMap.Add(key, newState);
         }
 
-        public TDialogStateBase GetState(TDialogStateMachineKey key)
+        public DialogStateBase<TDialogStateMachineKey> GetState(TDialogStateMachineKey key)
         {
             return this.stateMap[key];
         }
