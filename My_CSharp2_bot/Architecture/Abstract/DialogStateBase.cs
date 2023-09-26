@@ -8,9 +8,9 @@ namespace My_CSharp2_bot.Architecture.Abstract
 {
     internal abstract class DialogStateBase
     {
-        protected readonly DialogStateMachine stateMachine;
+        protected readonly DialogStateMachineBase stateMachine;
 
-        public DialogStateBase(DialogStateMachine stateMachine)
+        public DialogStateBase(DialogStateMachineBase stateMachine)
         {
             this.stateMachine = stateMachine;
         }
