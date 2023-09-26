@@ -19,4 +19,8 @@
     <PackageReference Include="telegram.bot" Version="19.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Architecture\Abstract\" />
+  </ItemGroup>
+
 </Project>
