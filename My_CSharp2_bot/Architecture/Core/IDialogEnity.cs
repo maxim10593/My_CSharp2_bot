@@ -10,8 +10,10 @@ namespace My_CSharp2_bot.Architecture.Abstract
         where TEntityId : notnull
         where TDialogStateMachineKey : notnull
     {
-        DialogStateMachineBase<TDialogStateMachineKey, TEntityId> DialogStateMachine { get; }
+        DialogStateMachineBase<TEntityId, TDialogStateMachineKey> DialogStateMachine { get; }
 
         TEntityId Id { get; }
+
+        DialogEntitySystemBase<TEntityId, TDialogStateMachineKey> EntitySystem { get; }
     }
 }

@@ -22,6 +22,11 @@ namespace My_CSharp2_bot.Architecture.Abstract
             return this.entityMap.ContainsKey(entityId);
         }
 
+        public IDialogEnity<TEntityId, TDialogStateMachineKey> GetEnity(TEntityId entityId)
+        {
+            return this.entityMap[entityId];
+        }
+
         public void RemoveEntity(TEntityId entityId)
         {
             this.entityMap.Remove(entityId);
